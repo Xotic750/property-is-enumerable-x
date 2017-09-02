@@ -1,6 +1,6 @@
 /**
  * @file Indicates whether the specified property is enumerable.
- * @version 1.0.0
+ * @version 1.0.1
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -15,7 +15,7 @@ var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
 /**
  * This method returns a Boolean indicating whether the specified property is
- * enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherise it
+ * enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherwise it
  * does ES6ify the method.
  *
  * @param {!Object} object - The object on which to test the property.

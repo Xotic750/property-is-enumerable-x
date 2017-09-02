@@ -23,7 +23,7 @@
 ## property-is-enumerable-x
 Indicates whether the specified property is enumerable.
 
-**Version**: 1.0.0  
+**Version**: 1.0.1  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -31,7 +31,7 @@ Indicates whether the specified property is enumerable.
 
 ### `module.exports(object, property)` ⇒ <code>boolean</code> ⏏
 This method returns a Boolean indicating whether the specified property is
-enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherise it
+enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherwise it
 does ES6ify the method.
 
 **Kind**: Exported function  
