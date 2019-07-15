@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-15T11:01:36.127Z",
+  "date": "2019-07-15T13:00:01.905Z",
   "describe": "",
   "description": "Indicates whether the specified property is enumerable.",
   "file": "property-is-enumerable-x.js",
   "hash": "a0c1b68b90f8a467d1c3",
   "license": "MIT",
-  "version": "2.0.0"
+  "version": "2.0.1"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
