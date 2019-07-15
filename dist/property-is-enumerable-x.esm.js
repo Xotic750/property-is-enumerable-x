@@ -1,8 +1,6 @@
 import toPropertyKey from 'to-property-key-x';
 import toObject from 'to-object-x';
-
-const propIsEnumerable = {}.propertyIsEnumerable;
-
+var propIsEnumerable = {}.propertyIsEnumerable;
 /**
  * This method returns a Boolean indicating whether the specified property is
  * enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherwise it
@@ -14,6 +12,9 @@ const propIsEnumerable = {}.propertyIsEnumerable;
  * @returns {boolean} A Boolean indicating whether the specified property is
  *  enumerable.
  */
+
 export default function propertyIsEnumerable(object, property) {
   return propIsEnumerable.call(toObject(object), toPropertyKey(property));
 }
+
+//# sourceMappingURL=property-is-enumerable-x.esm.js.map

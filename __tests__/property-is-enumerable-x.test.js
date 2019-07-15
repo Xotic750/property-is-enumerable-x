@@ -1,27 +1,4 @@
-let propertyIsEnumerable;
-
-if (typeof module === 'object' && module.exports) {
-  require('es5-shim');
-  require('es5-shim/es5-sham');
-
-  if (typeof JSON === 'undefined') {
-    JSON = {};
-  }
-
-  require('json3').runInContext(null, JSON);
-  require('es6-shim');
-  const es7 = require('es7-shim');
-  Object.keys(es7).forEach(function(key) {
-    const obj = es7[key];
-
-    if (typeof obj.shim === 'function') {
-      obj.shim();
-    }
-  });
-  propertyIsEnumerable = require('../../index.js');
-} else {
-  propertyIsEnumerable = returnExports;
-}
+import propertyIsEnumerable from '../src/property-is-enumerable-x';
 
 let workingDefProp;
 const obj = {};
@@ -33,41 +10,49 @@ try {
     writable: true,
   });
 
-  // eslint-disable-next-line no-prototype-builtins
+  /* eslint-disable-next-line no-prototype-builtins */
   workingDefProp = obj.name === 'Testing' && obj.propertyIsEnumerable('name') === false;
-} catch (ignore) {}
+} catch (ignore) {
+  // empty
+}
 
 const itWorkingDefProp = workingDefProp ? it : xit;
 
+/* eslint-disable-next-line compat/compat */
 const hasSymbols = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const itHasSymbols = hasSymbols ? it : xit;
 
 describe('propertyIsEnumerable', function() {
   it('is a function', function() {
+    expect.assertions(1);
     expect(typeof propertyIsEnumerable).toBe('function');
   });
 
   it('should throw when target is null or undefined', function() {
+    expect.assertions(3);
     expect(function() {
       propertyIsEnumerable();
-    }).toThrow();
+    }).toThrowErrorMatchingSnapshot();
 
     expect(function() {
+      /* eslint-disable-next-line no-void */
       propertyIsEnumerable(void 0);
-    }).toThrow();
+    }).toThrowErrorMatchingSnapshot();
 
     expect(function() {
       propertyIsEnumerable(null);
-    }).toThrow();
+    }).toThrowErrorMatchingSnapshot();
   });
 
   it('should not throw for other primitives and return false for non-existent properties', function() {
+    expect.assertions(3);
     expect(propertyIsEnumerable(1)).toBe(false);
     expect(propertyIsEnumerable(true, null)).toBe(false);
     expect(propertyIsEnumerable('a', '')).toBe(false);
   });
 
   it('should return true for enumerable object properties', function() {
+    expect.assertions(1);
     const o = {};
     o.prop = 'is enumerable';
 
@@ -75,6 +60,7 @@ describe('propertyIsEnumerable', function() {
   });
 
   itWorkingDefProp('should return true false for non-enumerable object properties', function() {
+    expect.assertions(1);
     const o = {};
     Object.defineProperty(o, 'prop', {
       configurable: true,
@@ -87,19 +73,22 @@ describe('propertyIsEnumerable', function() {
   });
 
   it('should return true (OS buggy) for enumerable array properties', function() {
+    expect.assertions(1);
     const a = [];
     a[0] = 'is enumerable';
-    // eslint-disable-next-line no-prototype-builtins
+    /* eslint-disable-next-line no-prototype-builtins */
     expect(propertyIsEnumerable(a, 0)).toBe(a.propertyIsEnumerable(0));
   });
 
   it('should be true (OS buggy) for string indexes', function() {
+    expect.assertions(1);
     const s = 'is enumerable';
-    // eslint-disable-next-line no-prototype-builtins
+    /* eslint-disable-next-line no-prototype-builtins */
     expect(propertyIsEnumerable(s, 0)).toBe(Object(s).propertyIsEnumerable(0));
   });
 
   it('should return false for non-enumerable properties', function() {
+    expect.assertions(2);
     const a = [];
 
     expect(propertyIsEnumerable(a, 'length')).toBe(false);
@@ -107,6 +96,8 @@ describe('propertyIsEnumerable', function() {
   });
 
   itHasSymbols('should work with symbols', function() {
+    expect.assertions(2);
+    /* eslint-disable-next-line compat/compat */
     const s = Symbol('');
     const o = {};
     o[s] = 'is enumerable';
