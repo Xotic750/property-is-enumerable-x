@@ -18,7 +18,6 @@ try {
 
 const itWorkingDefProp = workingDefProp ? it : xit;
 
-/* eslint-disable-next-line compat/compat */
 const hasSymbols = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const itHasSymbols = hasSymbols ? it : xit;
 
@@ -35,7 +34,6 @@ describe('propertyIsEnumerable', function() {
     }).toThrowErrorMatchingSnapshot();
 
     expect(function() {
-      /* eslint-disable-next-line no-void */
       propertyIsEnumerable(void 0);
     }).toThrowErrorMatchingSnapshot();
 
@@ -97,7 +95,7 @@ describe('propertyIsEnumerable', function() {
 
   itHasSymbols('should work with symbols', function() {
     expect.assertions(2);
-    /* eslint-disable-next-line compat/compat */
+
     const s = Symbol('');
     const o = {};
     o[s] = 'is enumerable';
