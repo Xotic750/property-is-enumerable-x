@@ -10,7 +10,6 @@ try {
     writable: true,
   });
 
-  /* eslint-disable-next-line no-prototype-builtins */
   workingDefProp = obj.name === 'Testing' && obj.propertyIsEnumerable('name') === false;
 } catch (ignore) {
   // empty
@@ -74,14 +73,14 @@ describe('propertyIsEnumerable', function() {
     expect.assertions(1);
     const a = [];
     a[0] = 'is enumerable';
-    /* eslint-disable-next-line no-prototype-builtins */
+
     expect(propertyIsEnumerable(a, 0)).toBe(a.propertyIsEnumerable(0));
   });
 
   it('should be true (OS buggy) for string indexes', function() {
     expect.assertions(1);
     const s = 'is enumerable';
-    /* eslint-disable-next-line no-prototype-builtins */
+
     expect(propertyIsEnumerable(s, 0)).toBe(Object(s).propertyIsEnumerable(0));
   });
 
