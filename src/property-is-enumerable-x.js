@@ -14,6 +14,8 @@ const propIsEnumerable = {}.propertyIsEnumerable;
  * @returns {boolean} A Boolean indicating whether the specified property is
  *  enumerable.
  */
-export default function propertyIsEnumerable(object, property) {
+const propertyIsEnumerable = function propertyIsEnumerable(object, property) {
   return propIsEnumerable.call(toObject(object), toPropertyKey(property));
-}
+};
+
+export default propertyIsEnumerable;

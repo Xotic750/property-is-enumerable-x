@@ -13,8 +13,10 @@ var propIsEnumerable = {}.propertyIsEnumerable;
  *  enumerable.
  */
 
-export default function propertyIsEnumerable(object, property) {
+var propertyIsEnumerable = function propertyIsEnumerable(object, property) {
   return propIsEnumerable.call(toObject(object), toPropertyKey(property));
-}
+};
+
+export default propertyIsEnumerable;
 
 //# sourceMappingURL=property-is-enumerable-x.esm.js.map
