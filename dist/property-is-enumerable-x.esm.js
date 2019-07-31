@@ -7,7 +7,7 @@ var propIsEnumerable = {}.propertyIsEnumerable;
  * does ES6ify the method.
  *
  * @param {!object} object - The object on which to test the property.
- * @param {string|Symbol} property - The name of the property to test.
+ * @param {string|symbol} property - The name of the property to test.
  * @throws {TypeError} If target is null or undefined.
  * @returns {boolean} A Boolean indicating whether the specified property is
  *  enumerable.
