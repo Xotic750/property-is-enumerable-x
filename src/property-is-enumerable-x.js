@@ -1,7 +1,8 @@
 import toPropertyKey from 'to-property-key-x';
 import toObject from 'to-object-x';
+import methodize from 'simple-methodize-x';
 
-const propIsEnumerable = {}.propertyIsEnumerable;
+const propIsEnumerable = methodize({}.propertyIsEnumerable);
 
 /**
  * This method returns a Boolean indicating whether the specified property is
@@ -15,7 +16,7 @@ const propIsEnumerable = {}.propertyIsEnumerable;
  *  enumerable.
  */
 const propertyIsEnumerable = function propertyIsEnumerable(object, property) {
-  return propIsEnumerable.call(toObject(object), toPropertyKey(property));
+  return propIsEnumerable(toObject(object), toPropertyKey(property));
 };
 
 export default propertyIsEnumerable;
