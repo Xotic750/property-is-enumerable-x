@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-28T17:18:26.839Z",
+  "date": "2019-08-30T22:02:53.346Z",
   "describe": "",
   "description": "Indicates whether the specified property is enumerable.",
   "file": "property-is-enumerable-x.js",
